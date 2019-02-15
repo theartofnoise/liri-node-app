@@ -6,7 +6,7 @@ var axios = require("axios");
 var spotify = new Spotify(keys.spotify);
 var moment = require('moment');
 var fs = require("fs");
-
+var currentDate = moment().format("dddd, MMMM Do YYYY, h:mm:ss a");
 
 var pounds = "#######################################";
 
@@ -30,7 +30,9 @@ for (var i = 3; i < searchTerms.length; i++) {
     axios.get(movieUrl).then(
         function(response) {
             // console.log(response)
-          console.log(`${pounds}\nTitle: ${response.data.Title}\nRated: ${response.data.Rated}\nRelease Year: ${response.data.Year}\nIMDB Rating: ${response.data.imdbRating}\nCountry: ${response.data.Country}\nLanguage: ${response.data.Language}\nPlot: ${response.data.Plot}\nActors: ${response.data.Actors}`);
+            var movieResponse = `${pounds}\nTitle: ${response.data.Title}\nRated: ${response.data.Rated}\nRelease Year: ${response.data.Year}\nIMDB Rating: ${response.data.imdbRating}\nCountry: ${response.data.Country}\nLanguage: ${response.data.Language}\nPlot: ${response.data.Plot}\nActors: ${response.data.Actors}`
+          console.log(movieResponse);
+          fs.appendFileSync("./log.txt", movieResponse+"\nTime Searched: "+currentDate);
         }
       );
 }
@@ -42,12 +44,12 @@ function spotifyApi(){
           return console.log('Error occurred: ' + err);
         }
         //logs out results
-        console.log(pounds);
-        console.log("Artist: "+JSON.stringify(data.tracks.items[0].album.artists[0].name,null,2).replace(/"/g,"")); 
-        console.log("Track Name: "+JSON.stringify(data.tracks.items[0].name,null,2).replace(/"/g,"")); 
-        console.log("Album: "+JSON.stringify(data.tracks.items[0].album.name,null,2).replace(/"/g,"")); 
-        console.log("Popularity out of 100: "+JSON.stringify(data.tracks.items[0].popularity,null,2)); 
-        console.log("Preview Here: "+JSON.stringify(data.tracks.items[0].preview_url,null,2).replace(/"/g,"")); 
+        var songData = `${pounds}\nArtist: ${JSON.stringify(data.tracks.items[0].album.artists[0].name,null,2).replace(/"/g,"")}\nTrack Name: ${JSON.stringify(data.tracks.items[0].name,null,2).replace(/"/g,"")}\nAlbum: ${JSON.stringify(data.tracks.items[0].album.name,null,2).replace(/"/g,"")}\nPopularity out of 100: ${JSON.stringify(data.tracks.items[0].popularity,null,2)}\nPreview Here: ${JSON.stringify(data.tracks.items[0].preview_url,null,2).replace(/"/g,"")}`;
+
+        console.log(songData);
+
+        fs.appendFileSync("./log.txt", songData+"\nTime Searched: "+currentDate);
+
       });
 
 }
@@ -62,7 +64,8 @@ function bandsInTownApi(){
             // moments to display time
             var time = response.data[0].datetime;
             var bandDate = moment(time).format("dddd, MMMM Do YYYY, h:mm:ss a");
-            console.log(bandDate); 
+            console.log(bandDate);
+            
         }
       );
 }
