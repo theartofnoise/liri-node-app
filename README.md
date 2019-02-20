@@ -45,9 +45,12 @@ bandsInTown_ID=your-bandsInTown-key
 
 ![movie-this](./Screenshots_Videos/movie-this.jpg)
 
-### It will automatically create a time stamped search log
+### It will also automatically create a time stamped search log
 
 ![Searh Log](./Screenshots_Videos/SearchLog.jpg)
 
+### Not sure why, but incase you wanted it to spotify something from a random.txt file, you can do that too...
 
-[My Portfolio](https://theartofnoise.github.io/Bootstrap-Portfolio/)
+![Searh Log](./Screenshots_Videos/do-what-it-says.jpg)
+
+Please check out more fun things on [My Portfolio](https://theartofnoise.github.io/Bootstrap-Portfolio/)
