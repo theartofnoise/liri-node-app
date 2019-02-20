@@ -53,4 +53,8 @@ bandsInTown_ID=your-bandsInTown-key
 
 ![Searh Log](./Screenshots_Videos/do-what-it-says.jpg)
 
-Please check out more fun things on [My Portfolio](https://theartofnoise.github.io/Bootstrap-Portfolio/)
+#  
+
+### Here is a [video](https://drive.google.com/file/d/1OpisLJ-36KB_Ed3CoM7XJwz6SGTUuSQ1/view) of the working version!
+
+### Please check out more fun things on [My Portfolio](https://theartofnoise.github.io/Bootstrap-Portfolio/)!!
